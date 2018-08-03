@@ -24,6 +24,8 @@
         </vx-form>
         <full-calendar :events="fcEvents" locale="zh-cn">
         </full-calendar>
+        <dynamic-form :upload-url="'https://jsonplaceholder.typicode.com/posts/'" :upload-tip="'只能上传jpg/png文件，且不超过500kb'" :data="datalist"
+            not-empty-text="不能为空" selectplaceholder="— 请选择 —"></dynamic-form>
     </div>
 </body>
 
@@ -93,7 +95,90 @@
                     "languagetype": 2,
                     "label": "英"
                 }],
-                curLang: 1
+                curLang: 1,
+                datalist: [{
+                        fieldcode: "01",
+                        datatype: 0,
+                        resvalue: "字符类型",
+                        value: "value",
+                        refdatasourcetype: 1,
+                        allownull: false
+                    },
+                    {
+                        fieldcode: "02",
+                        datatype: 1,
+                        resvalue: "整数",
+                        value: "15",
+                        refdatasourcetype: 1,
+                        allownull: true
+                    },
+                    {
+                        fieldcode: "03",
+                        datatype: 2,
+                        resvalue: "浮点",
+                        value: "25.36",
+                        refdatasourcetype: 1
+                    },
+                    {
+                        fieldcode: "04",
+                        datatype: 3,
+                        resvalue: "日期时间类型",
+                        value: "",
+                        refdatasourcetype: 1
+                    },
+                    {
+                        fieldcode: "05",
+                        datatype: 4,
+                        resvalue: "日期类型",
+                        value: "",
+                        refdatasourcetype: 1
+                    },
+                    {
+                        fieldcode: "06",
+                        datatype: 5,
+                        resvalue: "时间类型",
+                        value: "",
+                        refdatasourcetype: 1
+                    },
+                    {
+                        fieldcode: "07",
+                        datatype: 6,
+                        resvalue: "附件类型",
+                        value: "",
+                        refdatasourcetype: 1,
+                        attachmentsource: [{
+                                attachmentid: "1",
+                                attachmentdocname: 'food.jpeg',
+                                attachmentdocpath: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+                            },
+                            {
+                                attachmentid: "2",
+                                attachmentdocname: 'food2.jpeg',
+                                attachmentdocpath: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+                            }
+                        ]
+                    },
+                    {
+                        fieldcode: "08",
+                        datatype: 7,
+                        resvalue: "下拉列表类型",
+                        value: "2",
+                        refdatasourcetype: 2,
+                        datasource: [{
+                                text: "option1",
+                                value: "1"
+                            },
+                            {
+                                text: "option2",
+                                value: "2"
+                            },
+                            {
+                                text: "option3",
+                                value: "3"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         methods: {
