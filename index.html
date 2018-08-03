@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/element_ui.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="css/vx_ui.css"> -->
+</head>
+
+<body>
+    <div id="app">
+        <vx-switch v-model="value1" on-text="" off-text="">
+        </vx-switch>
+        <vx-switch v-model="value2" on-color="#71d1ff" off-color="#fc8e8c">
+        </vx-switch>
+        <vx-form v-bind:model="form" v-bind:rules="formrules" label-width="133px">
+            <vx-form-item label="Label">
+                <input-lang v-bind:items="lang" v-bind:values="form.name" v-bind:rules="languagetyperule" prop="name" :maxlength=10 :cur-lang="curLang"
+                    :disabled="true" v-bind:show-label="false" v-bind:validate-all="false">
+                </input-lang>
+            </vx-form-item>
+        </vx-form>
+        <full-calendar :events="fcEvents" locale="zh-cn">
+        </full-calendar>
+    </div>
+</body>
+
+<script src="js/vue.js"></script>
+<script src="js/element_ui_test.js"></script>
+<!-- <script src="js/vx_ui.js"></script> -->
+<script src="js/index.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                fcEvents: [{
+                        title: 'Sunny Out of Office',
+                        start: '2017-06-02',
+                        end: '2017-06-05',
+                        cssClass: ['family']
+                    },
+                    {
+                        title: 'Sunny Out of Office',
+                        start: '2017-06-02',
+                        end: '2017-06-04',
+                        cssClass: ['career']
+                    },
+                    {
+                        title: 'Sunny Out of Office',
+                        start: '2017-06-02',
+                        end: '2017-06-04',
+                        cssClass: ['career']
+                    },
+                    {
+                        title: 'Sunny Out of Office',
+                        start: '2017-06-02',
+                        end: '2017-06-04',
+                        cssClass: ['career']
+                    },
+                    {
+                        title: 'Sunny Out of Office',
+                        start: '2017-06-02',
+                        end: '2017-06-04',
+                        cssClass: ['pure']
+                    }
+                ],
+                value1: true,
+                value2: true,
+                form: {
+                    name: [{
+                            "languagetype": 1,
+                            "value": "中文"
+                        },
+                        {
+                            "languagetype": 2,
+                            "value": "英文"
+                        }
+                    ]
+                },
+                languagetyperule: {
+                    required: true,
+                    message: '内容不能为空',
+                    trigger: 'blur'
+                },
+                formrules: {},
+                lang: [{
+                    "languagetype": 1,
+                    "label": "中"
+                }, {
+                    "languagetype": 2,
+                    "label": "英"
+                }],
+                curLang: 1
+            }
+        },
+        methods: {
+            onIconClick6(event) {
+                console.log(6);
+            }
+        }
+    })
+</script>
+
+</html>
